@@ -1,24 +1,46 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
 const App = () => {
+  const [count, setCount] = useState(0);
 
-
-  const [count,setCount] = useState(1);
-  return (
-    <div className='container'>
-    
-
-
- <h1>count is {count}</h1>
-<button className='btn' onClick={()=>
-  {
-
-setCount(count*2);
+  function BtnClicked() {
+    setCount(count + 1);
   }
-}>tap me daddy</button>
 
-    </div>
-  )
+  function BtnSlipped() {
+    setCount(count - 1);
+    if (count == 0) {
+      setCount(0);
+    }
+  }
+
+const submitHandler = (e) => {
+
+  e.preventDefault();
+console.log("form is submitted")
+
+
 }
 
-export default App
+
+  return (
+    <div className="container">
+      <h1>count is {count}</h1>
+      <button onClick={BtnClicked} className="btn">
+        Increase
+      </button>
+      <button onClick={BtnSlipped} className="btn">
+        Decrease
+      </button>
+
+      <form onSubmit={(e)=> {
+
+        submitHandler(e)
+      }}>
+        <input className="text" type="text" placeholder="Enter your Name" />
+        <button className="btn">Submit</button>
+      </form>
+    </div>
+  );
+};
+export default App;
