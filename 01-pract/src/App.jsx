@@ -14,29 +14,26 @@ const App = () => {
     }
   }
 
-const submitHandler = (e) => {
-
-  e.preventDefault();
-console.log("form is submitted")
-
-
-}
-
+  const submitHandler = (e) => {
+    e.preventDefault();
+    console.log("form is submitted");
+  };
 
   return (
     <div className="container">
       <h1>count is {count}</h1>
-      <button onClick={BtnClicked} className="btn">
+      <button onMouseUp={BtnClicked} className="btn">
         Increase
       </button>
-      <button onClick={BtnSlipped} className="btn">
+      <button onMouseDown={BtnSlipped} className="btn">
         Decrease
       </button>
 
-      <form onSubmit={(e)=> {
-
-        submitHandler(e)
-      }}>
+      <form
+        onSubmit={(e) => {
+          submitHandler(e);
+        }}
+      >
         <input className="text" type="text" placeholder="Enter your Name" />
         <button className="btn">Submit</button>
       </form>
